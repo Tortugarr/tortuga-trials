@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#071b22" />
+    <title>Tortuga Trials</title>
+    <link rel="stylesheet" href="style.css?v=40" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="game-wrap" aria-label="Tortuga Trials game">
+        <canvas id="game" width="960" height="540"></canvas>
+        <div id="winScreen" class="overlay hidden">
+          <p class="eyebrow">COMPLETE</p>
+          <h1>You made it.</h1>
+          <p id="finalStats"></p>
+          <button id="againBtn" class="primary">PLAY AGAIN</button>
+        </div>
+        <div id="levelScreen" class="overlay hidden">
+          <div class="panel">
+            <p class="eyebrow">LEVELS</p>
+            <h2>Raum wählen</h2>
+            <div id="levelGrid" class="level-grid"></div>
+            <button id="closeLevelsBtn" class="secondary">BACK</button>
+          </div>
+        </div>
+        <div id="deathScreen" class="overlay hidden">
+          <div class="panel death-panel">
+            <p class="eyebrow">TRY AGAIN</p>
+            <h2 id="deathMessage">Not this time.</h2>
+            <div class="death-actions">
+              <button id="deathRestartBtn" class="secondary">RESTART</button>
+              <button id="deathLevelsBtn" class="secondary">LEVELS</button>
+            </div>
+          </div>
+        </div>
+        <div id="settingsScreen" class="overlay hidden">
+          <div class="panel settings-panel">
+            <p class="eyebrow">SETTINGS</p>
+            <h2>Game options</h2>
+            <button id="autoRestartSetting" class="setting-row">
+              <span>AUTO RESTART</span
+              ><strong id="autoRestartValue">OFF</strong>
+            </button>
+            <button id="soundSetting" class="setting-row">
+              <span>SOUND</span><strong id="soundValue">ON</strong>
+            </button>
+            <button id="trackingSetting" class="setting-row">
+              <span>TRACKING MODE</span><strong id="trackingValue">ON</strong>
+            </button>
+            <section class="about" aria-labelledby="aboutTitle">
+              <h3 id="aboutTitle">ABOUT</h3>
+              <div class="about-meta"><strong>VERSION 1.5.0</strong><span>BY StoiberRules</span></div>
+              <p>NEU: Tortuga Trials, Pixel-Tutorial, ursachenabhängige Todesnachrichten, gröbere Türpixel und ein neues Finale.</p>
+            </section>
+            <button id="closeSettingsBtn" class="secondary">BACK</button>
+          </div>
+        </div>
+        <div class="hud">
+          <div><small>ROOM</small><strong id="levelLabel">01 / 50</strong></div>
+          <div class="right">
+            <small>DEATHS</small><strong id="deathLabel">00</strong>
+          </div>
+        </div>
+        <div class="game-actions">
+          <button id="mapBtn" aria-label="Level select" title="Level auswählen"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1 1h6v6H1zM9 1h6v6H9zM1 9h6v6H1zM9 9h6v6H9z"/></svg></button>
+          <button id="restartBtn" aria-label="Restart room" title="Neustart (R)"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1h7v2h3v3h2v6h-2v3H5v-3h7V6h-2V4H5v3H0V1h2v3h2z"/></svg></button>
+          <button id="settingsBtn" aria-label="Settings" title="Einstellungen"><svg viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M6 0h4v3h3V1h2v4h-2v1h3v4h-3v1h2v4h-2v-2h-3v3H6v-3H3v2H1v-4h2v-1H0V6h3V5H1V1h2v2h3zM6 6v4h4V6z"/></svg></button>
+        </div>
+        <nav class="touch-controls" aria-label="Touch controls">
+          <button data-key="left" aria-label="Move left"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 1h3v3H6v3h9v3H6v3h3v3H6v-3H3v-3H0V7h3V4h3z"/></svg></button>
+          <button data-key="right" aria-label="Move right"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M7 1h3v3h3v3h3v3h-3v3h-3v3H7v-3h3v-3H1V7h9V4H7z"/></svg></button>
+          <button data-key="jump" class="jump" aria-label="Jump"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 0h4v3h3v3h3v3h-3V6h-3v10H6V6H3v3H0V6h3V3h3z"/></svg></button>
+        </nav>
+      </section>
+    </main>
+    <script src="levels.js?v=40"></script>
+    <script src="world.js?v=40"></script>
+    <script src="game.js?v=40"></script>
+  </body>
+</html>
